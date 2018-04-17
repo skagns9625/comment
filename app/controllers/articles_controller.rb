@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
     def create
         params.permit!
         @article = Article.new(params[:article])
-        
         @article.save()
         redirect_to @article
     end
@@ -13,5 +12,11 @@ class ArticlesController < ApplicationController
     def show
         @article = Article.find(params[:id])
         # test comment
+    end
+    
+    def index
+        @articles = Article.all
+    end
+    def destroy
     end
 end
